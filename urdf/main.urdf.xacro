@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Slambot">
+
+
+
+<!-- ___________________________________________Use any one at a time_____________________________________________________________ -->
+
+<!-- When using gazebo_diff_drive control set "use_ros2_control" to false, and "sim_mode" to true  -->
+<!-- When using ros2_control set "use_ros2_control" to true, and "sim_mode" to true/false based on modes - Real_Robot or Sim_Robot -->
+
+    <!-- <xacro:include filename="ros2_control_gazebo.xacro" /> -->
+    <xacro:include filename="ros2_control_slambot.xacro" />
+    
+<!-- make sure to comment out the controllers from gazebo_launch of ros2_control when using gazebo_control-->
+    <!-- <xacro:include filename="gazebo_control.xacro" />         -->
+
+
+<!-- _____________________Use any one model_____________________ -->
+<!--      Normal Version is more compatible with Gazebo Sim      -->
+
+    <xacro:include filename="slambot_mesh_version.xacro"/>
+    <xacro:include filename="lidar_mesh.xacro"/>
+    <xacro:include filename="t265_tracking_cam_mesh.xacro"/>
+
+
+    <!-- <xacro:include filename="slambot_normal_version.xacro"/> -->
+    <!-- <xacro:include filename="lidar_normal.xacro"/> -->
+    <!-- <xacro:include filename="t265_tracking_cam_normal.xacro"/> -->
+<!-- ____________________________________________________________ -->
+
+    <xacro:include filename="gazebo_config.xacro"/>
+
+</robot>
