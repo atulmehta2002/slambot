@@ -3,14 +3,14 @@
 
 <!-- _____________________________________________________________________ -->
 
-    <!-- camera_link link -->
+    <!-- camera_pose_frame link -->
 
-    <link name="camera_link"/>
+    <link name="T265_pose_frame"/>
 
-    <!-- camera_link_joint joint -->
+    <!-- camera_pose_frame joint -->
 
-    <joint name="camera_link_joint" type="fixed">
-        <parent link="camera_link"/>
+    <joint name="T265_pose_frame_joint" type="fixed">
+        <parent link="T265_pose_frame"/>
         <child link="base_link"/>
         <origin xyz="0 0 0.030" rpy="0 0 0"/>
     </joint>
