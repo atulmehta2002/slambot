@@ -1,3 +1,27 @@
+
+
+
+# import os
+# from ament_index_python.packages import get_package_share_directory
+# from launch import LaunchDescription
+# from launch_ros.actions import Node
+# from launch.actions import IncludeLaunchDescription
+# from launch.launch_description_sources import PythonLaunchDescriptionSource
+
+
+# def generate_launch_description():
+#     map_file = os.path.join(get_package_share_directory('slambot'),'maps', 'room.yaml')
+
+#     return LaunchDescription([
+#         IncludeLaunchDescription(
+#             PythonLaunchDescriptionSource([get_package_share_directory('nav2_bringup'),'/launch','/bringup_launch.py']),
+#             launch_arguments={
+#             'map':map_file}.items(),
+#         ),
+#     ])
+
+
+
 # Copyright (c) 2018 Intel Corporation
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +49,7 @@ from nav2_common.launch import RewrittenYaml
 
 def generate_launch_description():
     # Get the launch directory
-    bringup_dir = get_package_share_directory('slambot')
+    bringup_dir = get_package_share_directory('articubot_one')
 
     namespace = LaunchConfiguration('namespace')
     map_yaml_file = LaunchConfiguration('map')
@@ -40,7 +64,6 @@ def generate_launch_description():
     # https://github.com/ros/robot_state_publisher/pull/30
     # TODO(orduno) Substitute with `PushNodeRemapping`
     #              https://github.com/ros2/launch_ros/issues/56
-    
     remappings = [('/tf', 'tf'),
                   ('/tf_static', 'tf_static')]
 
@@ -65,7 +88,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'map',
-            default_value=os.path.join(bringup_dir, 'maps', 'room.yaml'),
+            default_value=os.path.join(bringup_dir, 'maps', 'turtlebot3_world.yaml'),
             description='Full path to map yaml file to load'),
 
         DeclareLaunchArgument(
@@ -106,3 +129,6 @@ def generate_launch_description():
                         {'autostart': autostart},
                         {'node_names': lifecycle_nodes}])
     ])
+
+
+
