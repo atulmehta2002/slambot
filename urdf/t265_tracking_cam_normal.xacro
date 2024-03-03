@@ -1,28 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- _____________________________________________________________________ -->
-
-    <!-- camera_pose_frame link -->
-
-    <link name="T265_pose_frame"/>
-
-    <!-- camera_pose_frame joint -->
-
-    <joint name="T265_pose_frame_joint" type="fixed">
-        <parent link="T265_pose_frame"/>
-        <child link="base_link"/>
-        <origin xyz="0 0 0.030" rpy="0 0 0"/>
-    </joint>
-
-<!-- _____________________________________________________________________ -->
-
-<!-- Custom (just for visual) -->
-
 <!-- TRACKING CAMERA LINK -->
 
-
-<!-- <link name="t265_cam">
+<link name="T265_pose_frame">
 
     <visual name="">
         <geometry>
@@ -42,16 +23,15 @@
     <xacro:inertial_box mass="0.060" x="0.010" y="0.105" z="0.025">
         <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
     </xacro:inertial_box>
-    
 
-</link> -->
+</link>
 
 <!-- TRACKING CAMERA JOINT -->
 
-<!-- <joint name="t265_cam_joint" type="fixed">
-    <parent link="chassis"/>
-    <child link="t265_cam"/>
-    <origin xyz="0.19 0 0.0725" rpy="0 0 0"/>
-</joint> -->
+<joint name="T265_pose_frame_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="T265_pose_frame"/>
+    <origin xyz="0.17 0 0.0725" rpy="0 0 0"/>
+</joint>
     
 </robot>
