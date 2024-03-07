@@ -4,15 +4,15 @@
 
 <!-- ___________________________________________Use any one at a time_____________________________________________________________ -->
 
-        <xacro:include filename="ros2_control_gazebo.xacro" />
+        <!-- <xacro:include filename="ros2_control_gazebo.xacro" />
         <xacro:include filename="slambot_normal_version.xacro"/>
         <xacro:include filename="lidar_normal.xacro"/>
-        <xacro:include filename="t265_tracking_cam_normal.xacro"/>
+        <xacro:include filename="t265_tracking_cam_normal.xacro"/> -->
     
-        <!-- <xacro:include filename="ros2_control_slambot.xacro" />
+        <xacro:include filename="ros2_control_slambot.xacro" />
         <xacro:include filename="slambot_mesh_version.xacro"/>
         <xacro:include filename="lidar_mesh.xacro"/>
-        <xacro:include filename="t265_tracking_cam_mesh.xacro"/> -->
+        <xacro:include filename="t265_tracking_cam_mesh.xacro"/>
 
 <!-- _____________________________________________________________________________________________________________________________ -->
 
