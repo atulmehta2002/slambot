@@ -12,7 +12,7 @@ def generate_launch_description():
 
     package_name='slambot'
     gazebo_params_file = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
-    world_path = os.path.join(get_package_share_directory(package_name),'worlds','obstacles.world')    # maze, obstacles, turtlebot, house
+    world_path = os.path.join(get_package_share_directory(package_name),'worlds','house.world')    # maze, obstacles, turtlebot, house
     use_sim_time = LaunchConfiguration('use_sim_time')
     params = {'use_sim_time': use_sim_time}
 
