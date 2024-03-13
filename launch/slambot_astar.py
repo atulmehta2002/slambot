@@ -1,3 +1,8 @@
+#----------------------------------------------------------------------------------#
+# if needed change paths of PGM, PGM_TO_PNG, SHORTEST_PATH_MAP, COORDINATES        # 
+#----------------------------------------------------------------------------------#
+
+
 import pygame
 import os
 import heapq
@@ -153,7 +158,7 @@ end_point = None
 running = True
 while running:
     
-    with open("coordinates.yaml", "r") as file:                     # read the contents of yaml file and store then in respective variables
+    with open("/home/atul/slam-bot-streaming/coordinates.yaml", "r") as file:                     # read the contents of yaml file and store then in respective variables
         safe_data = yaml.safe_load(file)
         
     start_x, start_y = safe_data["start_coordinate"]
