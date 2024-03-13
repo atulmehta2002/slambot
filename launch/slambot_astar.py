@@ -119,10 +119,10 @@ class GridGraph:
 pygame.init()
 
 # Constants
-GRID_SIZE = 1                               # Adjust this to change the grid size
-pgm_file = "mapped_area.pgm"                       # Change this to your map file
-png_file = "mapped_area.png"                       # this is scaled image of pgm image
-shortest_path_map = "shortest_path_map.png"         # Save the shortest path map as a PNG file
+GRID_SIZE = 1                                      # Adjust this to change the grid size
+pgm_file = "/home/atul/ros2_ws/src/slambot/maps/mapped_area.pgm"                       # Change this to your map file
+png_file = "/home/atul/slam-bot-streaming/public/images/mapped_area.png"                        # this is scaled image of pgm image
+shortest_path_map = "/home/atul/slam-bot-streaming/public/images/shortest_path_map.png"         # Save the shortest path map as a PNG file
 scale_factor = 5                            # Scale up to 500%
 
 counter = 0                 # used to save map only once after second click event
