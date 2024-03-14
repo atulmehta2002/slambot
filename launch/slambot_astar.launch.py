@@ -26,7 +26,7 @@ def scale_and_save_png(pgm_file, scale_factor, png_file):
     scaled_pgm = scaled_pgm.convert('RGB')                                                                                       # Convert to RGB for compatibility with PNG format 
     scaled_pgm.save(png_file, format='PNG')                                                                                      # Save the image as a PNG file
 
-    print(f"PGM file saved as: {png_file}")
+    print(f"PGM file saved as: mapped_area.png")
 
   except FileNotFoundError:
     print(f"Error: PGM file not found: {pgm_file}")
@@ -124,8 +124,8 @@ class GridGraph:
 pygame.init()
 
 # Constants
-GRID_SIZE = 1                                      # Adjust this to change the grid size
-pgm_file = "/home/atul/ros2_ws/src/slambot/maps/mapped_area.pgm"                       # Change this to your map file
+GRID_SIZE = 1                                                                                   # Adjust this to change the grid size
+pgm_file = "/home/atul/ros2_ws/src/slambot/maps/mapped_area.pgm"                                # Change this to your map file
 png_file = "/home/atul/slam-bot-streaming/public/images/mapped_area.png"                        # this is scaled image of pgm image
 shortest_path_map = "/home/atul/slam-bot-streaming/public/images/shortest_path_map.png"         # Save the shortest path map as a PNG file
 scale_factor = 5                            # Scale up to 500%
@@ -164,6 +164,12 @@ while running:
     start_x, start_y = safe_data["start_coordinate"]
     goal_x, goal_y = safe_data["goal_coordinate"]
     
+    #scale down the coordinates since the png file saved is scaled upto scale_factor times
+    start_x = int(start_x/5)
+    start_y = int(start_y/5)
+    goal_x = int(goal_x/5)
+    goal_y = int(goal_y/5)
+
     start_point = (start_x, start_y)
     end_point = (goal_x, goal_y)
 
@@ -195,12 +201,12 @@ while running:
             pygame.draw.line(screen, (0, 0, 255), (path[i][0] * cell_size + cell_size // 2, path[i][1] * cell_size + cell_size // 2),
                              (path[i+1][0] * cell_size + cell_size // 2, path[i+1][1] * cell_size + cell_size // 2), 3)
         
-        if end_point and counter >= 50:
+        if end_point and counter >= 25:
             scale_and_save_png(pgm_file, scale_factor, png_file)                                      # save the scaled up map of pgm image to png format
             
             pygame.image.save(screen, shortest_path_map)                                              # save the shortest path map image to png format
             print(f"Length in (x, y): ({len(scaled_image[0])}, {len(scaled_image)})")
-            print(f"Map saved as: {shortest_path_map}, {save_counter} times!!")
+            print(f"Map saved as: shortest_path_map.png, {save_counter} times!!")
             print(f"----------------------------X------------------------------")
             counter = 0
             save_counter = save_counter + 1
